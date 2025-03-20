@@ -1,13 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:mis_widgets_app/config/menu/menu_items.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Flutter+ Material 3'),
-      ),
+      appBar: AppBar(title: Text('Flutter+ Material 3')),
+      body: _HomeView(),
+    );
+  }
+}
+
+class _HomeView extends StatelessWidget {
+  const _HomeView();
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: appMenuItems.length,
+      itemBuilder: (context, index) {
+        final menuItem = appMenuItems[index];
+        return _CustomListTitle(menuItem: menuItem);
+      },
+    );
+  }
+}
+
+class _CustomListTitle extends StatelessWidget {
+  const _CustomListTitle({required this.menuItem});
+
+  final MenuItems menuItem;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+    return ListTile(
+      leading: IconButton(onPressed: () {}, icon: Icon(menuItem.icon, color: colors.primary,)),
+      title: Text(menuItem.titulo),
+      subtitle: Text(menuItem.subTitulo),
+      trailing: Icon(Icons.arrow_forward_ios_outlined,color: colors.primary,),
+      onTap: () {
+        //Todo: Navegar a otra pantalla
+      },
     );
   }
 }
