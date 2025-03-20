@@ -37,12 +37,16 @@ class _CustomListTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     return ListTile(
-      leading: IconButton(onPressed: () {}, icon: Icon(menuItem.icon, color: colors.primary,)),
+      leading: IconButton(
+        onPressed: () {},
+        icon: Icon(menuItem.icon, color: colors.primary),
+      ),
       title: Text(menuItem.titulo),
       subtitle: Text(menuItem.subTitulo),
-      trailing: Icon(Icons.arrow_forward_ios_outlined,color: colors.primary,),
+      trailing: Icon(Icons.arrow_forward_ios_outlined, color: colors.primary),
       onTap: () {
-        //Todo: Navegar a otra pantalla
+        // Navigator.of(context).push(MaterialPageRoute(builder: (context) => ButtonsScreen(),));
+        Navigator.pushNamed(context, menuItem.link);
       },
     );
   }

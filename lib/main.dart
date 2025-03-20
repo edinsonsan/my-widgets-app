@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mis_widgets_app/config/theme/app_theme.dart';
+import 'package:mis_widgets_app/presentatio/screens/buttons/buttons_screen.dart';
+import 'package:mis_widgets_app/presentatio/screens/cards/cards_screen.dart';
 import 'package:mis_widgets_app/presentatio/screens/home/home_screen.dart';
 
 void main() {
@@ -17,6 +19,10 @@ class MainApp extends StatelessWidget {
       home: Scaffold(
         body: HomeScreen(),
       ),
+      routes: {
+      '/buttons': (contex)=> ButtonsScreen(),
+      '/cards': (contex)=> CardsScreen(),
+      }
     );
   }
 }
