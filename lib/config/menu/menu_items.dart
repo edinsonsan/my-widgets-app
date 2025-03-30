@@ -57,4 +57,10 @@ const appMenuItems = <MenuItems>[
     link: '/tutorial', 
     icon: Icons.accessibility_new_outlined,
   ),
+  MenuItems(
+    titulo: 'Scroll Infinito y Actualizar', 
+    subTitulo: 'Pequeño tutorial introductorio', 
+    link: '/infinite', 
+    icon: Icons.list_alt_outlined,
+  ),
 ];
