@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mis_widgets_app/config/router/app_router.dart';
-import 'package:mis_widgets_app/config/theme/app_theme.dart';
 import 'package:mis_widgets_app/presentatio/providers/theme_provider.dart';
 
 void main() {
