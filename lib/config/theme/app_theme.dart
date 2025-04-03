@@ -10,24 +10,23 @@ final colorList = <Color>[
   Colors.orange,
   Colors.pink,
   Colors.pinkAccent,
-
 ];
 
 class AppTheme {
   final int selectedColor;
+  final bool isDrakmode;
 
-  AppTheme({
-    required this.selectedColor
-  })
-  :assert(selectedColor >= 0, 'Selected color must be greater theme 0'),
-  assert(selectedColor < colorList.length, 'Selected color must be less or equal theme ${colorList.length-1}');
+  AppTheme({this.isDrakmode = false, this.selectedColor = 0})
+    : assert(selectedColor >= 0, 'Selected color must be greater theme 0'),
+      assert(
+        selectedColor < colorList.length,
+        'Selected color must be less or equal theme ${colorList.length - 1}',
+      );
 
-  ThemeData getTheme() =>
-      ThemeData(
-        useMaterial3: true, 
-        colorSchemeSeed: colorList[selectedColor],
-        appBarTheme: const AppBarTheme(
-          centerTitle: false,
-        )
-        );
+  ThemeData getTheme() => ThemeData(
+    useMaterial3: true,
+    brightness: isDrakmode? Brightness.dark : Brightness.light,
+    colorSchemeSeed: colorList[selectedColor],
+    appBarTheme: const AppBarTheme(centerTitle: false),
+  );
 }
